@@ -5,6 +5,7 @@ import Comments from '../screens/Comments'
 import Layout from '../components/shared/Layout'
 import { createComment } from '../services/comments'
 import { getCommentsByMovieId } from '../services/comments'
+import '../styles/comments.css'
 
 class CommentCreate extends Component {
   constructor(props) {
@@ -43,7 +44,6 @@ class CommentCreate extends Component {
   handleSubmit = async event => {
     event.preventDefault()
     const res = await createComment(this.state.comment)
-    console.log('res.data', res.data)
 
     if (res.status === 201) {
       this.props.addComment(res.data)
@@ -55,19 +55,15 @@ class CommentCreate extends Component {
   } 
 
   async componentDidMount() {
-    console.log('comp did mount', this.props.movie_id)
     this.getComments()
-    console.log('comp did mount array', this.state.comments)
   }
-  
+
   render() {
     const { handleChange, handleSubmit } = this
     const { comment, comments } = this.state
-    console.log('comments[] in render', comments)
     const { history, user, movie_id } = this.props
-    console.log(`comment`, comment)
     return (
-      <Layout>
+        <div className='comments-section'>
         <CommentForm
           comment={comment}
           history={history}
@@ -76,7 +72,8 @@ class CommentCreate extends Component {
           cancelPath="../"
         />
         <Comments user={user} omdb_movie_id={movie_id} comments={comments} comments={comments}/>
-      </Layout>
+
+        </div> 
     )
   }
 }

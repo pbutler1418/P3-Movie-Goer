@@ -27,8 +27,8 @@ class Comments extends Component {
       return comments.map(comment => {
         return (
           <div className="comment" key={comment._id}>
-            <p>Comment: {comment.text}</p>
-            <p>Written by: {comment.user}</p>
+            <p className='comment-text'>{comment.text}</p>
+            <p className='comment-user'>-{comment.user}</p>
           </div>
         )
       })
@@ -38,10 +38,10 @@ class Comments extends Component {
   }
 
   return (
-    <div className='comments-container'>
-      <h4>Comments will be displayed here</h4>
+    <div className='comments-display'>
+      <h4>Our Movie-Goers Are Saying:</h4>
       {!comments ? <h3>No comments at this time.</h3> : null}
-      <div className="comment-container">{renderComments()}</div>
+      <div className='comments'>{renderComments()}</div>
     </div>
   )
     
