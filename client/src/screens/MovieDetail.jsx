@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/shared/Layout'
 import CommentCreate from '.././screens/CommentCreate'
 import Comments from './Comments'
-import Comment from './Comment'
+import '../styles/movieDetail.css'
 
 
 import ItemCreate from './ItemCreate'
@@ -19,39 +19,35 @@ const pic = 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Forrest_Gump_p
 
 
 const MovieDetail = (props) => {
-  const { movieData, index, user, addComment, comments } = props
-
-  console.log('movie detail props', props)
-
-  console.log('addComment', addComment)
+  const { movieData, index, user, addComment } = props
 
   const movie = movieData.find(movie => movie.id == props.match.params.id)
 
-  console.log(movie)
   const pic = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
 
   return (
-    
-    <div className="Movie" key={index}>
-      
-      <img src={pic} alt={"movie poster"} />
-      <h2>{movie.title}</h2>
-      <p>{movie.release_date}</p>
-      <p>{movie.overview}</p>
 
-      <Link to="/create">
-        <button>Add to My Movie List</button>
-      </Link>
+    <Layout key={index}>
+      <div className='movie'>
+        <img src={pic} alt={"movie poster"} />
+        <div className='movie-right'>
+        <h2>{movie.title}</h2>
+        <p>{movie.release_date}</p>
+        <p>{movie.overview}</p>
 
-      <Link to="/">
-        <button> Go Back to Explore</button>
-      </Link>
-      <div className='comment-container'>
-        <CommentCreate user={user} movie_id={props.match.params.id} addComment={addComment} comments={comments} />
-        {/* <Comment /> */}
-        <Comments user={user} omdb_movie_id={props.match.params.id} comments={comments}/>
-      </div>
-    </div>
+        <Link to="/create">
+          <button>Add to My Movie List</button>
+        </Link>
+
+        <Link to="/">
+          <button> Go Back to Explore</button>
+        </Link>
+
+        </div>
+        
+        </div>
+        <CommentCreate user={user} movie_id={props.match.params.id} addComment={addComment} />
+    </Layout>
   )
 }
 

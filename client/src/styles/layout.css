@@ -1,15 +1,22 @@
 .layout{
-  height: 80vh;
+  height: 200vh;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: rgba(255,255,255, 0.8);
+  margin: 0px;
 }
 
-Nav{
-  height: 100%;
+nav{
   width: 15%;
   margin: 0px;
   display: flex;
   flex-direction: column;
-  background-color: #ADD8E6;
+  background-color: rgba(77,0,19, 0.5);
+  color: rgba (255,255,255, 0.5);
+  padding: 10px 10px;
+}
+
+.main{
+  width: 85%;
+  padding: 10px 10px;
 }
