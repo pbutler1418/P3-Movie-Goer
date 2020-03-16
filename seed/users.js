@@ -10,7 +10,8 @@ const main = async () => {
     username: faker.name.firstName(),
     email: faker.internet.email(),
     password_digest: faker.random.uuid(),
-    movies: [{ type: String, required: true }]
+    // movies: [{ type: String, required: true }]
+    movies: "Batman"
   }))
 
   await User.insertMany(users)

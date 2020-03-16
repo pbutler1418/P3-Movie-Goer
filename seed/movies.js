@@ -7,13 +7,15 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 const main = async () => {
   const movies = [
     {
-      title: { type: String, required: true },
-      link: { type: String, required: true }
+      // title: { type: String, required: true },
+      // link: { type: String, required: true },
+      title: "batman",
+      link: "batman.com",
     }
   ]
 
   await Movie.insertMany(movies)
-  await User.insertMany(users)
+  // await User.insertMany(users)
   console.log("Created movies")
 }
 
