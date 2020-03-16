@@ -3,7 +3,7 @@ import api from "./apiConfig"
 export const getItems = async () => {
   try {
     const resp = await api.get("/items")
-    return resp.data.items
+    return resp.data.movies
   } catch (error) {
     throw error
   }
@@ -20,8 +20,8 @@ export const getItemById = async id => {
 
 export const createItem = async (id, item) => {
   try {
-    const resp = await api.post("/items", id, item)
-
+    debugger
+    const resp = await api.post(`/users/${id}/items`, item)
     console.log(resp.data)
     return resp
   } catch (error) {
@@ -49,7 +49,7 @@ export const deleteItem = async id => {
 
 export const getMoviesUser = async id => {
   try {
-    const resp = await api.post(`/items`)
+    const resp = await api.post(`/users/${id}/items`)
     return resp.data
   } catch (error) {
     throw error
