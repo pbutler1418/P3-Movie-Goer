@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getCommentsByMovieId } from '../services/comments'
+
 
 
 class Comments extends Component {
@@ -12,19 +12,14 @@ class Comments extends Component {
 
 
   async componentDidMount() {
-    console.log('comments component props', this.props)
-    try {
-      const comments = await getCommentsByMovieId(this.props.omdb_movie_id)
-        this.setState({ comments: comments })
-    } catch (err) {
-        console.error(err)
-    }
-}
-
+    console.log('props of comments.jsx', this.props)
+  }
+  
 
   render() {
   
-  const { comments } = this.state
+    const { comments } = this.props
+    console.log('comments inside comments.jsx', comments)
 
   const renderComments = () => {
     console.log('this should log comments to be displayed from comments.jsx', comments)
@@ -43,7 +38,7 @@ class Comments extends Component {
   }
 
   return (
-    <div>
+    <div className='comments-container'>
       <h4>Comments will be displayed here</h4>
       {!comments ? <h3>No comments at this time.</h3> : null}
       <div className="comment-container">{renderComments()}</div>
