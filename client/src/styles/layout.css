@@ -1,0 +1,15 @@
+.layout{
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+Nav{
+  height: 100%;
+  width: 15%;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ADD8E6;
+}
