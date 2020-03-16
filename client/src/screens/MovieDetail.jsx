@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/shared/Layout'
 import CommentCreate from '.././screens/CommentCreate'
 import Comments from './Comments'
-import Comment from './Comment'
+import '../styles/comments.css'
 
 
 import ItemCreate from './ItemCreate'
@@ -19,7 +19,7 @@ const pic = 'https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Forrest_Gump_p
 
 
 const MovieDetail = (props) => {
-  const { movieData, index, user, addComment, comments } = props
+  const { movieData, index, user, addComment} = props
 
   console.log('movie detail props', props)
 
@@ -46,11 +46,7 @@ const MovieDetail = (props) => {
       <Link to="/">
         <button> Go Back to Explore</button>
       </Link>
-      <div className='comment-container'>
-        <CommentCreate user={user} movie_id={props.match.params.id} addComment={addComment} comments={comments} />
-        {/* <Comment /> */}
-        <Comments user={user} omdb_movie_id={props.match.params.id} comments={comments}/>
-      </div>
+        <CommentCreate user={user} movie_id={props.match.params.id} addComment={addComment}/>
     </div>
   )
 }

@@ -1,0 +1,15 @@
+#comment-container{
+  border: solid red;
+  background-color: yellow;
+}
+
+CommentForm{
+  border: solid black;
+  background-color: yellow;
+}
+
+Comments{
+  border: solid blue;
+  background-color: yellow;
+}
+

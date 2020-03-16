@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import CommentForm from '../components/shared/CommentForm'
+import Comments from '../screens/Comments'
 import Layout from '../components/shared/Layout'
 import { createComment } from '../services/comments'
+import { getCommentsByMovieId } from '../services/comments'
 
 class CommentCreate extends Component {
   constructor(props) {
@@ -13,12 +15,25 @@ class CommentCreate extends Component {
         text: '',
         user: props.user.username,
       },
-      createdComment: null
+      createdComment: null,
+      comments: []
     }
-    console.log('comment create props', props.comments)
   }
 
-  // this was the items app way
+
+
+  getComments = async () => {
+    try {
+      const comments = await getCommentsByMovieId(this.props.movie_id)
+      console.log('comments in getComments', comments)
+      this.setState(
+        { comments: comments }
+      )
+    } catch (err) {
+        console.error(err)
+    }
+  }
+
   handleChange = event => {
     const updatedField = { [event.target.name]: event.target.value }
     const editedComment = Object.assign(this.state.comment, updatedField)
@@ -36,14 +51,20 @@ class CommentCreate extends Component {
         createdComment: res.data
       })
     }
+    this.getComments()
+  } 
+
+  async componentDidMount() {
+    console.log('comp did mount', this.props.movie_id)
+    this.getComments()
+    console.log('comp did mount array', this.state.comments)
   }
-
- 
-
+  
   render() {
     const { handleChange, handleSubmit } = this
-    const { comment } = this.state
-    const { history } = this.props
+    const { comment, comments } = this.state
+    console.log('comments[] in render', comments)
+    const { history, user, movie_id } = this.props
     console.log(`comment`, comment)
     return (
       <Layout>
@@ -54,6 +75,7 @@ class CommentCreate extends Component {
           handleSubmit={handleSubmit}
           cancelPath="../"
         />
+        <Comments user={user} omdb_movie_id={movie_id} comments={comments} comments={comments}/>
       </Layout>
     )
   }
