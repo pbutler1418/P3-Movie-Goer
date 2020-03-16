@@ -47,9 +47,10 @@ const signIn = async (req, res) => {
       const payload = {
         id: user._id,
         username: user.username,
-        email: user.email
+        email: user.email,
+        movies: user.movies
       }
-
+      console.log(payload)
       const token = jwt.sign(payload, TOKEN_KEY)
       return res.status(201).json({ user, token })
     } else {
@@ -66,7 +67,7 @@ const createMovie = async (req, res) => {
   try {
     let movie = await new Movie(req.body)
     // movie.user_id=req.body.currentUserId
-    movie = await movie.save()
+    await movie.save()
     await User.updateOne({ _id: req.user.id }, { $push: { movies: movie._id } })
     return res.status(201).json(movie)
   } catch (error) {

@@ -1,26 +1,40 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import ExploreMovies from '../screens/ExploreMovies'
-import Landing from '../screens/Landing'
-import SignIn from '../screens/SignIn'
-import SignOut from '../screens/SignOut'
-import SignUp from '../screens/SignUp'
+import React from "react"
+import { Route, Switch } from "react-router-dom"
+import ExploreMovies from "../screens/ExploreMovies"
+import Landing from "../screens/Landing"
+import SignIn from "../screens/SignIn"
+import SignOut from "../screens/SignOut"
+import SignUp from "../screens/SignUp"
 // import ChangePassword from '../screens/ChangePassword'
-import Item from '../screens/Item'
-import Items from '../screens/Items'
-import MyMovies from '../screens/MyMovies'
-import ItemCreate from '../screens/ItemCreate'
-import ItemEdit from '../screens/ItemEdit'
-import AuthenticatedRoute from './AuthenticatedRoute'
-import MovieDetail from '../screens/MovieDetail'
+import Item from "../screens/Item"
+import Items from "../screens/Items"
+import MyMovies from "../screens/MyMovies"
+import ItemCreate from "../screens/ItemCreate"
+import ItemEdit from "../screens/ItemEdit"
+import AuthenticatedRoute from "./AuthenticatedRoute"
+import MovieDetail from "../screens/MovieDetail"
 
-
-const Routes = ({ user, items, setUser, clearUser, addItem, movieData, addComment, comments }) => (
+const Routes = ({
+  user,
+  items,
+  setUser,
+  clearUser,
+  addItem,
+  movieData,
+  addComment,
+  comments
+}) => (
   <Switch>
     <Route
       exact
       path="/"
-      render={props => (user ? <ExploreMovies {...props} movieData={movieData} /> : <Landing {...props} items={items} />)}
+      render={props =>
+        user ? (
+          <ExploreMovies {...props} movieData={movieData} />
+        ) : (
+          <Landing {...props} items={items} />
+        )
+      }
     />
     <Route
       path="/sign-in"
@@ -64,7 +78,15 @@ const Routes = ({ user, items, setUser, clearUser, addItem, movieData, addCommen
     <AuthenticatedRoute
       path="/movies/:id"
       user={user}
-      render={props => <MovieDetail {...props} movieData={movieData} user={user} addComment={addComment} comments={comments}/>}
+      render={props => (
+        <MovieDetail
+          {...props}
+          movieData={movieData}
+          user={user}
+          addComment={addComment}
+          comments={comments}
+        />
+      )}
     />
     <AuthenticatedRoute
       exact
@@ -75,7 +97,7 @@ const Routes = ({ user, items, setUser, clearUser, addItem, movieData, addCommen
     <AuthenticatedRoute
       user={user}
       path="/create"
-      render={props => <ItemCreate {...props} addItem={addItem} />}
+      render={props => <ItemCreate {...props} user={user} addItem={addItem} />}
     />
   </Switch>
 )
