@@ -49,7 +49,9 @@ export default class Container extends Component {
   // }
 
   ///Review "add item" for shifting to "add movie to favorites"
-  addItem = item => this.setState({ items: [...this.state.items, item] })
+  addItem = item => {
+    this.setState(prevState => ({ items: [...prevState.items, item] }))
+  }
   addComment = comment =>
     this.setState(prevstate => ({
       comments: [...this.state.comments, comment]
