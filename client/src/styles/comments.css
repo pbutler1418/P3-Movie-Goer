@@ -23,6 +23,7 @@
   height: 100%;
 }
 
+
 .comments-display{
   height: 80%;
   width: 100%;
@@ -36,9 +37,9 @@
   height: 90%;
 }
 
-input{
+.input-container > input{
   height: 80%;
-  width: 78%;
+  width: 50%;
   margin: 5px 10px;
   padding: 5px;
 }
@@ -54,7 +55,7 @@ input.button{
   background-color:rgba(230,230,250,0.4);
   border-radius: 5px;
   padding: 10px 10px;
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-direction: column;
 }
