@@ -8,6 +8,7 @@ router.post("/sign-in", controllers.signIn)
 router.post("/change-password", controllers.changePassword)
 
 router.get("/", (req, res) => res.send("This is root!"))
+router.post("/users/:user_id/items", controllers.createMovie)
 router.post("/items", controllers.createMovie)
 router.get("/items", controllers.getAllMovie)
 router.get("/users", controllers.getAllUsers)
