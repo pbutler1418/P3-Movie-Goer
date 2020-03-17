@@ -32,7 +32,7 @@ export default class Container extends Component {
       try {
         // debugger
         const response = await axios.get(explore)
-        const items = await getItems(user.id)
+        // const items = await getItems(user.id)
         this.setState({
           explorerMovies: response.data.results
         })
@@ -54,6 +54,7 @@ export default class Container extends Component {
   addItem = item => {
     this.setState(prevState => ({ items: [...prevState.items, item] }))
   }
+
   addComment = comment =>
     this.setState(prevstate => ({
       comments: [...this.state.comments, comment]

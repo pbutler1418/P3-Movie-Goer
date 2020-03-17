@@ -74,7 +74,9 @@ const Routes = ({
       path={`/items/:id`}
       user={user}
       render={props => <Item {...props} />}
-    />
+      />
+      
+      
     <AuthenticatedRoute
       path="/movies/:id"
       user={user}
