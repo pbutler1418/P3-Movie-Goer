@@ -70,10 +70,10 @@ export default class Container extends Component {
     const { user, items, explorerMovies, comments } = this.state
 
     return (
-      <>
+      <div className='container'>
         <Header user={user} />
-        <main className="container">
-          <Routes
+        <div className="routes">
+        <Routes className='routes'
             movieData={explorerMovies}
             items={items}
             user={user}
@@ -83,9 +83,10 @@ export default class Container extends Component {
             clearUser={this.clearUser}
             comments={comments}
           />
-        </main>
+        </div>
+         
         <Footer />
-      </>
+      </div>
     )
   }
 }

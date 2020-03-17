@@ -45,7 +45,7 @@ class SearchFunction extends Component {
 
   Search = ({ onChange, onSubmit, name, value }) => {
     return (
-      <form onSubmit={e => onSubmit(e)}>
+      <form onSubmit={e => onSubmit(e)} className='search-form'>
         <div className="search">
           <input
             value={value}
@@ -75,7 +75,7 @@ class SearchFunction extends Component {
     })
     return (
       <>
-        <Search
+        <Search className='search'
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
           value={this.state.searchQuery}
@@ -92,8 +92,7 @@ export default SearchFunction
 
 const Search = ({ onChange, onSubmit, name, value }) => {
   return (
-    <form onSubmit={e => onSubmit(e)}>
-      <div className="search">
+    <form onSubmit={e => onSubmit(e)} className='search-form'>
         <input
           value={value}
           onChange={e => onChange(e)}
@@ -101,7 +100,6 @@ const Search = ({ onChange, onSubmit, name, value }) => {
           type="text"
         />
         <button type="submit">Search</button>
-      </div>
     </form>
   )
 }
