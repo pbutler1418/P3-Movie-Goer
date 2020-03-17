@@ -65,10 +65,13 @@ const changePassword = async (req, res) => {}
 
 const createMovie = async (req, res) => {
   try {
-    let movie = await new Movie(req.body)
-    // movie.user_id=req.body.currentUserId
+    const user = await User.findById(req.params.user_id)
+    // console.log(user)
+    const movie = await new Movie(req.body)
     await movie.save()
-    await User.updateOne({ _id: req.user.id }, { $push: { movies: movie._id } })
+    await user.movies.push(movie.id)
+    await user.save()
+    console.log(user)
     return res.status(201).json(movie)
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -118,8 +121,9 @@ const getMovieById = async (req, res) => {
   }
 }
 
-const updateMovie = async (req, res) => {
+const updateMovieFromUser = async (req, res) => {
   try {
+    const user = await User.findById(req.params.user_id)
     const { id } = req.params
     await Movie.findByIdAndUpdate(id, req.body, { new: true }, (err, movie) => {
       if (err) {
@@ -135,8 +139,9 @@ const updateMovie = async (req, res) => {
   }
 }
 
-const deleteMovie = async (req, res) => {
+const deleteMovieFromUser = async (req, res) => { //delete movie from the users' movie array
   try {
+    const user = await User.findById(req.params.user_id)
     const { id } = req.params
     const deleted = await Movie.findByIdAndDelete(id)
     if (deleted) {
@@ -234,8 +239,8 @@ module.exports = {
   createMovie,
   getAllMovie,
   getMovieById,
-  updateMovie,
-  deleteMovie,
+  updateMovieFromUser,
+  deleteMovieFromUser,
   getMoviesFromUser,
   getMovieByUserId,
   createComment,

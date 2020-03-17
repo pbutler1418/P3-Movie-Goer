@@ -5,11 +5,13 @@ import { getItems } from "../services/items"
 // import { getItems } from '../services/items'
 // import Landing from '../screens/Landing'
 // import Home from '../screens/Home'
+
 import Routes from "../routes"
 import Header from "../screens/Header"
 import Footer from "./shared/Footer"
 import "../styles/Container.css"
 import { verifyToken } from "../services/auth"
+
 
 const API_KEY = "981f1b61aa5e31abce190e535142d7e9"
 const explore = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
@@ -47,7 +49,9 @@ export default class Container extends Component {
   // }
 
   ///Review "add item" for shifting to "add movie to favorites"
-  addItem = item => this.setState({ items: [...this.state.items, item] })
+  addItem = item => {
+    this.setState(prevState => ({ items: [...prevState.items, item] }))
+  }
   addComment = comment =>
     this.setState(prevstate => ({
       comments: [...this.state.comments, comment]
