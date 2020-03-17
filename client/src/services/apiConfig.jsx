@@ -15,8 +15,6 @@ if (window.location.hostname === "localhost") {
   apiUrl = apiUrls.production
 }
 
-console.log("tken====>>>>", JwtToken)
-
 const api = Axios.create({
   baseURL: apiUrl,
   headers: {
