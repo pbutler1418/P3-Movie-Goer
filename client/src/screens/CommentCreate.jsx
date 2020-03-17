@@ -72,7 +72,6 @@ class CommentCreate extends Component {
           cancelPath="../"
         />
         <Comments user={user} omdb_movie_id={movie_id} comments={comments} comments={comments}/>
-
         </div> 
     )
   }
