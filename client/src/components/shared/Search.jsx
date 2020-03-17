@@ -80,6 +80,7 @@ class SearchFunction extends Component {
           onSubmit={this.handleSubmit}
           value={this.state.searchQuery}
           name="searchQuery"
+          placeholder="Enter Search Query"
         />
         {movies}
       </>
@@ -98,6 +99,7 @@ const Search = ({ onChange, onSubmit, name, value }) => {
           onChange={e => onChange(e)}
           name={name}
           type="text"
+          placeholder="Enter Search Query"
         />
         <button type="submit">Search</button>
     </form>
