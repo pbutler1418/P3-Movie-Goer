@@ -1,0 +1,23 @@
+
+input{
+  background-color:rgba(250, 235, 215, 0.459);
+  border: 1px solid antiquewhite;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1em; 
+  height: 3em; 
+  width: 12em;
+  margin: 1em auto 1em auto;
+  padding: auto;
+}
+
+button {
+  width: 15em;
+  font-size: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  background-color:rgba(0, 0, 0, 0.432);
+  border: 1px solid antiquewhite;
+  color: antiquewhite;
+  margin: 1em;
+}

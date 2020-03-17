@@ -52,7 +52,7 @@ class SignUp extends Component {
                 </button>
             )
         } else {
-            return <button type="submit">Sign In</button>
+            return <button type="submit">Sign Up</button>
         }
     }
 
@@ -63,41 +63,41 @@ class SignUp extends Component {
             <div className="row">
                 <div className="form-container">
                     <h3>Sign Up</h3>
-                    <form onSubmit={this.onSignUp}>
-                        <label>Username</label>
+                    <form onSubmit={this.onSignUp} className="signUp">
+                        {/* <label>Username</label> */}
                         <input
                             required
                             type="text"
                             name="username"
                             value={username}
-                            placeholder="Enter username"
+                            placeholder="Enter Username Here"
                             onChange={this.handleChange}
                         />
-                        <label>Email address</label>
+                        {/* <label>Email address</label> */}
                         <input
                             required
                             type="email"
                             name="email"
                             value={email}
-                            placeholder="Enter email"
+                            placeholder="Enter Email Here"
                             onChange={this.handleChange}
                         />
-                        <label>Password</label>
+                        {/* <label>Password</label> */}
                         <input
                             required
                             name="password"
                             value={password}
                             type="password"
-                            placeholder="Password"
+                            placeholder="Enter Password Here"
                             onChange={this.handleChange}
                         />
-                        <label>Password Confirmation</label>
+                        {/* <label>Password Confirmation</label> */}
                         <input
                             required
                             name="passwordConfirmation"
                             value={passwordConfirmation}
                             type="password"
-                            placeholder="Confirm Password"
+                            placeholder="Confirm Password Here"
                             onChange={this.handleChange}
                         />
                         {this.renderError()}
