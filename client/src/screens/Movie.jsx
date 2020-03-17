@@ -15,16 +15,16 @@ const Movie = (props) => {
     <div className="Movie" key={index}>
       <img src={pic} alt={"movie poster"} />
       <div className='movie-text'>
-        <h4 className='movie-title'>{movie.title}</h4>
+        <h4>{movie.title}</h4>
         <p>Release Date: {movie.release_date}</p>
         <p>Overview: {movie.overview}</p>
 
         <div className="movie-buttons">
-          <Link to='/create' className='button-link'>
-            <button>Save Movie</button>
+          <Link to='/create'>
+            <button>Add Movie to My Movies</button>
           </Link>
 
-          <Link to={`movies/${movie.id}`} className='button-link'>
+          <Link to={`movies/${movie.id}`}>
             <button> Show Detail</button>
           </Link>
 
