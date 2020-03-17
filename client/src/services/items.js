@@ -20,8 +20,9 @@ export const getItemById = async id => {
 
 export const createItem = async (id, item) => {
   try {
-    debugger
+    console.log("id/items====>", id, item)
     const resp = await api.post(`/users/${id}/items`, item)
+    // console.log(id, item)
     console.log(resp.data)
     return resp
   } catch (error) {
@@ -29,18 +30,18 @@ export const createItem = async (id, item) => {
   }
 }
 
-export const updateItem = async (id, item) => {
+export const updateItem = async (userId, itemId, item) => {
   try {
-    const resp = await api.put(`/items/${id}`, item)
+    const resp = await api.put(`/items/${userId}/items/${itemId}`, item)
     return resp.data
   } catch (error) {
     throw error
   }
 }
 
-export const deleteItem = async id => {
+export const deleteItem = async (userId, itemId) => {
   try {
-    const resp = await api.delete(`/items/${id}`)
+    const resp = await api.delete(`/users/${userId}/items/${itemId}`)
     return resp.data
   } catch (error) {
     throw error
