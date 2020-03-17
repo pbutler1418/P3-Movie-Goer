@@ -32,7 +32,7 @@ export default class Container extends Component {
     const user = await verifyToken()
     if (user) {
       try {
-        debugger
+        // debugger
         const response = await axios.get(explore)
         const items = await getItems(user.id)
         this.setState({
