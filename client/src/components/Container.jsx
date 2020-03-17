@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import axios from "axios"
 import { getItems } from "../services/items"
 
-// import { getItems } from '../services/items'
 // import Landing from '../screens/Landing'
 // import Home from '../screens/Home'
 
@@ -15,7 +14,6 @@ import { verifyToken } from "../services/auth"
 
 const API_KEY = "981f1b61aa5e31abce190e535142d7e9"
 const explore = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-// const search = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${input}`
 
 export default class Container extends Component {
   constructor(props) {
@@ -42,13 +40,17 @@ export default class Container extends Component {
         alert("error")
       }
     }
+
+
+    try {
+      const items = await getItems()
+      this.setState({ items })
+    } catch (err) {
+      console.error(err)
+    }
   }
 
-  // addMovie=async()=>{
-  //   const response = await getMovie(this.state.search, this.state.currentUser.id)
-  // }
 
-  ///Review "add item" for shifting to "add movie to favorites"
   addItem = item => {
     this.setState(prevState => ({ items: [...prevState.items, item] }))
   }
@@ -67,7 +69,7 @@ export default class Container extends Component {
 
     // console.log(this.state.explorerMovies)
 
-    const { user, items, explorerMovies, comments } = this.state
+    const { user, items, item, explorerMovies, comments } = this.state
 
     return (
       <>
@@ -76,6 +78,7 @@ export default class Container extends Component {
           <Routes
             movieData={explorerMovies}
             items={items}
+            item={item}
             user={user}
             setUser={this.setUser}
             addItem={this.addItem}
