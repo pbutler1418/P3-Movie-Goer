@@ -5,7 +5,8 @@ const Movie = new Schema(
   {
     // omdb_movie_id: [{ type: String, required: true }]
     title: { type: String, required: true },
-    link: { type: String, required: true }
+    link: { type: String, required: true },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: "users" }
     // user: [{ type: Schema.Types.ObjectId, ref: "users" }]
     // year: { type: String, required: true },
     // imdb_rating: { type: Number, required: true },

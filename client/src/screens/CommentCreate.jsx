@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import CommentForm from '../components/shared/CommentForm'
+import Comments from '../screens/Comments'
 import Layout from '../components/shared/Layout'
 import { createComment } from '../services/comments'
+import { getCommentsByMovieId } from '../services/comments'
+import '../styles/comments.css'
 
 class CommentCreate extends Component {
   constructor(props) {
@@ -13,12 +16,25 @@ class CommentCreate extends Component {
         text: '',
         user: props.user.username,
       },
-      createdComment: null
+      createdComment: null,
+      comments: []
     }
-    console.log('comment create props', props.comments)
   }
 
-  // this was the items app way
+
+
+  getComments = async () => {
+    try {
+      const comments = await getCommentsByMovieId(this.props.movie_id)
+      console.log('comments in getComments', comments)
+      this.setState(
+        { comments: comments }
+      )
+    } catch (err) {
+        console.error(err)
+    }
+  }
+
   handleChange = event => {
     const updatedField = { [event.target.name]: event.target.value }
     const editedComment = Object.assign(this.state.comment, updatedField)
@@ -28,7 +44,6 @@ class CommentCreate extends Component {
   handleSubmit = async event => {
     event.preventDefault()
     const res = await createComment(this.state.comment)
-    console.log('res.data', res.data)
 
     if (res.status === 201) {
       this.props.addComment(res.data)
@@ -36,17 +51,19 @@ class CommentCreate extends Component {
         createdComment: res.data
       })
     }
-  }
+    this.getComments()
+  } 
 
- 
+  async componentDidMount() {
+    this.getComments()
+  }
 
   render() {
     const { handleChange, handleSubmit } = this
-    const { comment } = this.state
-    const { history } = this.props
-    console.log(`comment`, comment)
+    const { comment, comments } = this.state
+    const { history, user, movie_id } = this.props
     return (
-      <Layout>
+        <div className='comments-section'>
         <CommentForm
           comment={comment}
           history={history}
@@ -54,7 +71,9 @@ class CommentCreate extends Component {
           handleSubmit={handleSubmit}
           cancelPath="../"
         />
-      </Layout>
+        <Comments user={user} omdb_movie_id={movie_id} comments={comments} comments={comments}/>
+
+        </div> 
     )
   }
 }
