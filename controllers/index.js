@@ -121,7 +121,7 @@ const getMovieById = async (req, res) => {
   }
 }
 
-const updateMovieFromUser = async (req, res) => {
+const updateMovie = async (req, res) => {
   try {
     const user = await User.findById(req.params.user_id)
     const { id } = req.params
@@ -139,19 +139,40 @@ const updateMovieFromUser = async (req, res) => {
   }
 }
 
-const deleteMovieFromUser = async (req, res) => { //delete movie from the users' movie array
+const deleteMovieFromUser = async (req, res) => {
+  const { ObjectId } = mongoose.Types
   try {
-    const user = await User.findById(req.params.user_id)
-    const { id } = req.params
-    const deleted = await Movie.findByIdAndDelete(id)
-    if (deleted) {
-      return res.status(200).send("Movie deleted")
-    }
-    throw new Error("Movie not found")
+    const { item_id, user_id } = req.params
+    console.log("params ===>", req.params) //user and movie id is defined
+    await Movie.findByIdAndDelete(ObjectId(item_id))
+    await User.updateOne(
+      { _id: ObjectId(user_id) },
+      { $pull: { movies: ObjectId(item_id) } }
+    )
+    res.status(200).send({ success: "Movie deleted" })
   } catch (error) {
-    return res.status(500).send(error.message)
+    // console.log(error)
+    res.status(500).send(error.message)
   }
 }
+
+// const deleteMovieFromUser = async (req, res) => {
+//   try {
+//     const { id, user_id } = req.params
+//     const movie = await Movie.findByIdAndDelete(id)
+//     const user = await User.findById(user_id)
+//     const targetId = await user.movie.find(id)
+//     await targetId.destroy()
+//     await user.save()
+
+//     if (deleted) {
+//       return res.status(200).send("Movie has been deleted")
+//     }
+//     throw new Error("Movie not found")
+//   } catch (error) {
+//     return res.status(500).send(error.message)
+//   }
+// }
 
 const createComment = async (req, res) => {
   console.log("logging from backend createcomment")
@@ -239,7 +260,8 @@ module.exports = {
   createMovie,
   getAllMovie,
   getMovieById,
-  updateMovieFromUser,
+  updateMovie,
+  // updateMovieFromUser,
   deleteMovieFromUser,
   getMoviesFromUser,
   getMovieByUserId,
