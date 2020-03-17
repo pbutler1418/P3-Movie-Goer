@@ -9,18 +9,18 @@ const ItemForm = ({
 }) => (
         <div className='form-container'>
             <form onSubmit={handleSubmit}>
-                <label>Title</label>
+                {/* <label>Title</label> */}
                 <input
-                    placeholder='A vetted item.'
+                    placeholder='Enter Movie Title'
                     value={item.title}
                     name='title'
                     required
                     onChange={handleChange}
                 />
 
-                <label>Link</label>
+                {/* <label>Link</label> */}
                 <input
-                    placeholder='http://acoolitem.com'
+                    placeholder='Enter Movie Year'
                     value={item.link}
                     name='link'
                     required
