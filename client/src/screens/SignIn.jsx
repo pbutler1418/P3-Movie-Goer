@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { signInUser } from '../services/auth'
+import '../styles/landing.css'
+
 
 class SignIn extends Component {
   constructor() {
@@ -61,23 +63,23 @@ class SignIn extends Component {
       <div className="row">
         <div className="form-container">
           <h3>Sign In</h3>
-          <form onSubmit={this.onSignIn}>
-            <label>Username</label>
-            <input
+          <form onSubmit={this.onSignIn} className="signIn">
+            {/* <label>Username</label> */}
+            <input className="signIn"
               required
               type="text"
               name="username"
               value={username}
-              placeholder="Enter Username"
+              placeholder="Enter Username Here"
               onChange={this.handleChange}
             />
-            <label>Password</label>
-            <input
+            {/* <label>Password</label> */}
+            <input className="signIn"
               required
               name="password"
               value={password}
               type="password"
-              placeholder="Password"
+              placeholder="Enter Password Here"
               onChange={this.handleChange}
             />
             {this.renderError()}

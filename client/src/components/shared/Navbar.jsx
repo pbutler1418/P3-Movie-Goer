@@ -1,4 +1,4 @@
 import React from 'react'
 
-const Navbar = ({ children }) => <div className='navbar'>{children}</div>
+const Navbar = ({ children }) => <p className='navbar'>{children}</p>
 export default Navbar

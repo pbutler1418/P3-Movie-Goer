@@ -7,7 +7,7 @@ import axios from 'axios'
 import Routes from '../routes'
 import Header from '../screens/Header'
 import Footer from './shared/Footer'
-import '../styles/Container.css'
+// import '../styles/Container.css'
 import { verifyToken } from "../services/auth";
 
 
