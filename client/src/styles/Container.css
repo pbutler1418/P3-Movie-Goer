@@ -22,6 +22,19 @@ button {
   margin: 1em;
 }
 
+
+
+
+.routes{
+  min-height: 75vh;
+}
+
+footer{
+  color: rgba(250, 235, 215, 0.555);
+  display: flexbox;
+  text-align: center;
+
+}
 .edits{
   text-decoration: none;
   width: 20em;
