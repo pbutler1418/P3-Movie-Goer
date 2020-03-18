@@ -2,7 +2,6 @@ import React from 'react'
 import Movie from './Movie'
 import SearchFunction from '../components/shared/Search'
 import Layout from '../components/shared/Layout'
-import '../styles/explore.css'
 
 
 const ExploreMovies = ({ movieData }) => {
@@ -15,10 +14,8 @@ const ExploreMovies = ({ movieData }) => {
 
   return (
     <Layout>
-      <div className='explore-search'>
-      <h4>Explore Movies</h4>
+      <h1>Explore Movies</h1>
       <SearchFunction />
-      </div>
       <div className='movies-container'>
       {movies}
       </div>

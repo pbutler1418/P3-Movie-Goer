@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: row nowrap;
   width: 46%;
-  height: 45%;
+  height: 40vh;
   margin: 15px;
   background-color: rgba(196, 175, 175, 0.8);
   align-items: stretch;
@@ -21,18 +21,13 @@
 .movie-text{
   display: flex;
   flex-direction: column;
-  font-size: 14px;  
-  width: 65%;
+  font-size: 14px;
 }
 
 h4{
   font-size: 24px;
 }
 
-.movie-title{
-  font-size: 24px;
-  width: 100%;
-}
 
 .movie-buttons{
   display: flex;
@@ -40,15 +35,8 @@ h4{
   width: 100%;
 }
 
-
- .button-link {
-  width: 30%;
-}
-
-.button-link > button {
-  width: 100%;
-  margin: 0px;
-  padding: 4px;
+.movie-buttons *{
+  width: 50%;
 }
 
 .Movie > img {
