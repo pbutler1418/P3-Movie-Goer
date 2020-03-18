@@ -1,7 +1,6 @@
 import React from 'react'
 
 const CommentForm = (props) => {
-  console.log('props of commentform', props)
   const { text} = props.comment
   return (
       <form onSubmit={props.handleSubmit} className='comments-form'>

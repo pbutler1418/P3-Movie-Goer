@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../components/shared/Layout'
-import { getItemById } from '../services/items'
+import { getItemById } from '../services/movies'
 
 
 class Item extends Component {

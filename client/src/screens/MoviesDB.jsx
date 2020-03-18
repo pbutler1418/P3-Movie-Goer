@@ -9,6 +9,8 @@ export default function Items(props) {
         <button onClick={() => history.push(`${match.url}/${id}`)}>
           Update Movie
         </button>
+
+
       )
     } else {
       return null

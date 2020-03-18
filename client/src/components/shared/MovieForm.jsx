@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/addToMyMovies.css'
 
-const ItemForm = ({
+const MovieForm = ({
   item,
   handleSubmit,
   handleChange,
@@ -34,4 +34,4 @@ const ItemForm = ({
     </div>
   )
 
-export default ItemForm
+export default MovieForm

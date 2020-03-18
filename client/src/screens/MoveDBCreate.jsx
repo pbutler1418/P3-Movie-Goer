@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
-import ItemForm from "../components/shared/ItemForm"
+import MovieForm from "../components/shared/MovieForm"
 import Layout from "../components/shared/Layout"
-import { createItem } from "../services/items"
+import { createItem } from "../services/movies"
 
 class ItemCreate extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class ItemCreate extends Component {
     return (
       <Layout>
         <h3>Add to My Movies</h3>
-        <ItemForm
+        <MovieForm
           item={item}
           history={history}
           handleChange={handleChange}

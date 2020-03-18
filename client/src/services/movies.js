@@ -54,12 +54,3 @@ export const getMoviesUser = async id => {
     throw error
   }
 }
-
-//export get a movie from the api function
-
-//export post a movie from the api function
-
-// getmovie = async (search, currentUserId) => {
-//   const movie = await axios.get(`imdb.com/api?title=${search}`)
-//   const response = await api.post("/movies", movie.data, currentUserId)
-// }
