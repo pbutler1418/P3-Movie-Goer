@@ -54,3 +54,33 @@ h4{
 .Movie > img {
   width: 35%;
 }
+
+@media (max-width: 600px){
+  .Movie {
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .Movie > img {
+    width: 100%;
+    width: 70%;
+    height: 50%;
+  }
+
+  .movie-text{
+    width: 100%;
+    align-items:center;
+  }
+
+  .button-link {
+    width: 40%;
+  }
+
+  .movie-buttons{
+    justify-content: center;
+  }
+
+}

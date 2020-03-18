@@ -67,3 +67,14 @@ input.button{
   text-align: right;
 }
 
+@media (max-width: 600px){
+  input.button{
+    width: 20%;
+  }
+
+  .input-container > input {
+    width: 50%;
+  }
+
+}
+

@@ -7,10 +7,16 @@
 nav{
   margin: 0px;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-around;
+  align-items: center;
   background-color: rgba(77,0,19, 0.5);
-  color: rgba (255,255,255, 0.5);
   padding: 10px 10px;
-  text-decoration: none;
+}
+
+nav > a{
+  color: rgba(255,255,255, 0.5);
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 25px;
 }

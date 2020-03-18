@@ -47,20 +47,12 @@ h3{
   text-align: center;
 }
 
-.signIn{
+.signIn, .signUp{
 display: flex;
 align-items: center;
 flex-direction: column;
 margin:1em;
 }
-
-.signUp{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin:1em;
-  }
-  
 
 input{
   background-color:rgba(250, 235, 215, 0.459);
@@ -74,3 +66,15 @@ input{
 }
 
 
+@media (max-width: 600px){
+  .links{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h2{
+    margin: 10px;
+    font-size: 23px;
+    text-align: center;
+  }
+}

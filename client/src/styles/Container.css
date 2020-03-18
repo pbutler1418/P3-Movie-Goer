@@ -23,8 +23,6 @@ button {
 }
 
 
-
-
 .routes{
   min-height: 75vh;
 }
@@ -54,4 +52,12 @@ footer{
 
 .item{
   display: flex;
+}
+
+
+@media (max-width: 600px){
+  h1{
+    font-size: 60px;
+    text-align: center;
+  }
 }
