@@ -33,12 +33,11 @@ class ItemEdit extends Component {
     this.setState({ item: editedItem })
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault()
-    debugger
-    updateItem(this.props.match.params.id, { ...this.state.item })
-      .then(() => this.setState({ updated: true }))
-      .catch(console.error)
+
+    const updatedMovie = await updateItem(this.props.match.params.id, this.state.item)
+    this.props.history.push('/items')
   }
 
   render() {
@@ -46,9 +45,9 @@ class ItemEdit extends Component {
     const { handleChange, handleSubmit } = this
     const { history } = this.props
 
-    if (updated) {
-      return <Redirect to={`/items/${this.props.match.params.id}`} />
-    }
+    // if (updated) {
+    //   return <Redirect to={`/items/${this.props.match.params.id}`} />
+    // }
 
     return (
       <>

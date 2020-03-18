@@ -1,13 +1,12 @@
 import React, { Component } from "react"
 import { Redirect } from 'react-router-dom'
 import axios from "axios"
-import { getItems, deleteItem } from "../services/items"
+import { getItems, deleteItem, updateItem } from "../services/items"
 import Routes from "../routes"
 import Header from "../screens/Header"
 import Footer from "./shared/Footer"
 import "../styles/Container.css"
 import { verifyToken } from "../services/auth"
-
 
 const API_KEY = "981f1b61aa5e31abce190e535142d7e9"
 const explore = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
@@ -17,7 +16,7 @@ export default class Container extends Component {
     super(props)
     this.state = {
       user: null,
-      items: [], //this should be tied to "my movies from the backend",
+      items: [],
       comments: [],
       explorerMovies: []
     }
@@ -27,9 +26,7 @@ export default class Container extends Component {
     const user = await verifyToken()
     if (user) {
       try {
-        // debugger
         const response = await axios.get(explore)
-        // const items = await getItems(user.id)
         this.setState({
           explorerMovies: response.data.results
         })
@@ -37,7 +34,6 @@ export default class Container extends Component {
         alert("error")
       }
     }
-
 
     try {
       const items = await getItems()
@@ -49,16 +45,14 @@ export default class Container extends Component {
   }
 
 
+
   addItem = item => {
     this.setState(prevState => ({ items: [...prevState.items, item] }))
   }
 
 
   destroy = async (itemId) => {
-    debugger
     const removeMovie = await deleteItem(this.state.user._id, itemId)
-    // .then(() => this.setState({ deleted: true }))
-    // .catch(console.error)
 
     this.setState(prevState => ({
       items: prevState.items.filter(item =>
@@ -66,9 +60,7 @@ export default class Container extends Component {
       )
     }))
     return <Redirect to={'/items'} />
-
   }
-
 
 
   addComment = comment =>
@@ -76,7 +68,10 @@ export default class Container extends Component {
       comments: [...this.state.comments, comment]
     }))
 
+
   setUser = user => this.setState({ user })
+
+
 
   clearUser = () => this.setState({ user: null })
 
@@ -99,6 +94,7 @@ export default class Container extends Component {
             setUser={this.setUser}
             addItem={this.addItem}
             destroy={this.destroy}
+            changeMovieItem={this.changeMovieItem}
             addComment={this.addComment}
             clearUser={this.clearUser}
             comments={comments}

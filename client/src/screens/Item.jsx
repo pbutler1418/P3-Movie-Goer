@@ -24,14 +24,9 @@ class Item extends Component {
     }
   }
 
-  // destroy = () => {
-  //   deleteItem(this.props.user._id, this.state.item._id)
-  //     .then(() => this.setState({ deleted: true }))
-  //     .catch(console.error)
-  // }
 
   render() {
-    const { item, deleted } = this.state
+    const { item } = this.state
     console.log(this.state.item)
     if (!item) {
       return <p>Loading...</p>
@@ -44,11 +39,14 @@ class Item extends Component {
           <Link to="/items">
             <span> Back to all items</span>
           </Link>
-          <h3>{item.title}</h3>
-          <p>{item.link}</p>
+          <h3>{item.title}-{item.link}</h3>
+          {/* <p>{item.link}</p> */}
 
           <div className="buttons">
-            <button className="danger" onClick={() => { this.props.delete(this.props.match.params.id); this.props.history.push('/items') }}>
+            <button className="danger" onClick={() => {
+              this.props.delete(this.props.match.params.id);
+              this.props.history.push('/items')
+            }}>
               Delete Item
             </button>
 

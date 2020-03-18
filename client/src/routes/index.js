@@ -20,6 +20,7 @@ const Routes = ({
   setUser,
   clearUser,
   destroy,
+  changeMovieItem,
   addItem,
   movieData,
   addComment,
@@ -51,6 +52,7 @@ const Routes = ({
         path="/sign-out"
         render={props => <SignOut {...props} clearUser={clearUser} user={user} />}
       />
+
       <AuthenticatedRoute
         exact
         path="/items"
@@ -74,7 +76,7 @@ const Routes = ({
         exact
         path={`/items/:id`}
         user={user}
-        render={props => <Item {...props} user={user} delete={destroy}/>}
+        render={props => <Item {...props} user={user} delete={destroy} />}
       />
 
 
@@ -91,12 +93,16 @@ const Routes = ({
           />
         )}
       />
+
+
       <AuthenticatedRoute
         exact
         user={user}
         path="/items/:id/edit"
-        render={props => <ItemEdit {...props} />}
+        render={props => <ItemEdit {...props} user={user} put={changeMovieItem} />}
       />
+
+
       <AuthenticatedRoute
         user={user}
         path="/create"
