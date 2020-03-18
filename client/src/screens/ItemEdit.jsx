@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import ItemForm from '../components/shared/ItemForm'
+import MovieForm from '../components/shared/MovieForm'
 import { getItemById, updateItem } from '../services/items'
 
 class ItemEdit extends Component {
@@ -51,7 +51,7 @@ class ItemEdit extends Component {
       <>
         <h3>{item.title} - {item.link}</h3>
 
-        <ItemForm
+        <MovieForm
           history={history}
           item={item}
           handleChange={handleChange}
