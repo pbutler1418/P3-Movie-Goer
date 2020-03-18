@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 import MovieForm from "../components/shared/MovieForm"
 import Layout from "../components/shared/Layout"
-import { createItem } from "../services/items"
+import { createItem } from "../services/movies"
 
 class ItemCreate extends Component {
   constructor(props) {

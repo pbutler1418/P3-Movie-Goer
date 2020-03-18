@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import MovieForm from '../components/shared/MovieForm'
-import { getItemById, updateItem } from '../services/items'
+import { getItemById, updateItem } from '../services/movies'
 
 class ItemEdit extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Redirect } from 'react-router-dom'
 import axios from "axios"
-import { getItems, deleteItem } from "../services/items"
+import { getItems, deleteItem } from "../services/movies"
 import Routes from "../routes"
 import Header from "../screens/Header"
 import Footer from "./shared/Footer"
