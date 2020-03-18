@@ -21,7 +21,7 @@ const Movie = (props) => {
 
         <div className="movie-buttons">
           <Link to='/create'>
-            <button>Add Movie to My Movies</button>
+            <button>Save Movie</button>
           </Link>
 
           <Link to={`movies/${movie.id}`}>

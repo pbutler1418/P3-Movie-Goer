@@ -2,6 +2,7 @@ import React from 'react'
 import Movie from './Movie'
 import SearchFunction from '../components/shared/Search'
 import Layout from '../components/shared/Layout'
+import '../styles/explore.css'
 
 
 const ExploreMovies = ({ movieData }) => {

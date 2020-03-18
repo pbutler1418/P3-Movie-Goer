@@ -79,7 +79,7 @@ export default class Container extends Component {
     const { user, items, item, explorerMovies, comments } = this.state
 
     return (
-      <>
+      <div className='outer-container'>
         <Header user={user} />
         <main className="container">
           <Routes
@@ -97,7 +97,7 @@ export default class Container extends Component {
           />
         </main>
         <Footer />
-      </>
+      </div>
     )
   }
 }
