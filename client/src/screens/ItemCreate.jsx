@@ -19,15 +19,12 @@ class ItemCreate extends Component {
 
   handleChange = event => {
     const updatedField = { [event.target.name]: event.target.value }
-
     const editedItem = Object.assign(this.state.item, updatedField)
-
     this.setState({ item: editedItem })
   }
 
   handleSubmit = async event => {
     event.preventDefault()
-    // debugger;
     const res = await createItem(this.props.user._id, this.state.item)
     if (res.status === 201) {
       this.props.addItem(res.data)
@@ -48,6 +45,7 @@ class ItemCreate extends Component {
 
     return (
       <Layout>
+        <h3>Add to My Movies</h3>
         <ItemForm
           item={item}
           history={history}

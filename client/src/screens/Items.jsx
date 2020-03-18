@@ -7,8 +7,8 @@ export default function Items(props) {
     if (user) {
       return (
         <button onClick={() => history.push(`${match.url}/${id}`)}>
-          See More
-                </button>
+          Update Movie
+        </button>
       )
     } else {
       return null
@@ -20,7 +20,7 @@ export default function Items(props) {
       return items.map(item => {
         return (
           <div className="item" key={item._id}>
-            <h4>{item.title}</h4>
+            <h3>{item.title} - {item.link}</h3>
             {renderButton(item._id)}
           </div>
         )
@@ -33,10 +33,11 @@ export default function Items(props) {
   if (user) {
     return (
       <Layout>
-        <h4>Items</h4>
-        {!items ? <h3>No Items at this time.</h3> : null}
-        <div className="item-container">{renderItems()}</div>
-        
+        <div>
+          <h3>My Movies</h3>
+          {!items ? <h3>No Items at this time.</h3> : null}
+          <div className="item-container">{renderItems()}</div>
+        </div>
       </Layout>
     )
   } else {

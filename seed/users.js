@@ -10,11 +10,14 @@ const main = async () => {
     username: faker.name.firstName(),
     email: faker.internet.email(),
     password_digest: faker.random.uuid(),
+<<<<<<< HEAD
     movies: []
+=======
+    movies: "Batman"
+>>>>>>> dev
   }))
 
   await User.insertMany(users)
-  console.log("Created users!")
 }
 const run = async () => {
   await main()

@@ -50,7 +50,6 @@ const signIn = async (req, res) => {
         email: user.email,
         movies: user.movies
       }
-      console.log(payload)
       const token = jwt.sign(payload, TOKEN_KEY)
       return res.status(201).json({ user, token })
     } else {
@@ -66,12 +65,10 @@ const changePassword = async (req, res) => {}
 const createMovie = async (req, res) => {
   try {
     const user = await User.findById(req.params.user_id)
-    // console.log(user)
     const movie = await new Movie(req.body)
     await movie.save()
     await user.movies.push(movie.id)
     await user.save()
-    console.log(user)
     return res.status(201).json(movie)
   } catch (error) {
     return res.status(500).json({ error: error.message })
@@ -81,7 +78,6 @@ const createMovie = async (req, res) => {
 const verifyUser = (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1]
-    console.log(token)
     const user = jwt.verify(token, TOKEN_KEY)
     res.locals = user
     res.json({ user: res.locals })
@@ -121,9 +117,8 @@ const getMovieById = async (req, res) => {
   }
 }
 
-const updateMovieFromUser = async (req, res) => {
+const updateMovie = async (req, res) => {
   try {
-    const user = await User.findById(req.params.user_id)
     const { id } = req.params
     await Movie.findByIdAndUpdate(id, req.body, { new: true }, (err, movie) => {
       if (err) {
@@ -139,22 +134,23 @@ const updateMovieFromUser = async (req, res) => {
   }
 }
 
-const deleteMovieFromUser = async (req, res) => { //delete movie from the users' movie array
+const deleteMovieFromUser = async (req, res) => {
+  const { ObjectId } = mongoose.Types
   try {
-    const user = await User.findById(req.params.user_id)
-    const { id } = req.params
-    const deleted = await Movie.findByIdAndDelete(id)
-    if (deleted) {
-      return res.status(200).send("Movie deleted")
-    }
-    throw new Error("Movie not found")
+    const { item_id, user_id } = req.params
+    await Movie.findByIdAndDelete(ObjectId(item_id))
+    await User.updateOne(
+      { _id: ObjectId(user_id) },
+      { $pull: { movies: ObjectId(item_id) } }
+    )
+    res.status(200).send({ success: "Movie deleted" })
   } catch (error) {
-    return res.status(500).send(error.message)
+    res.status(500).send(error.message)
   }
 }
 
+
 const createComment = async (req, res) => {
-  console.log("logging from backend createcomment")
   try {
     const comment = await new Comment(req.body)
     await comment.save()
@@ -166,13 +162,8 @@ const createComment = async (req, res) => {
 }
 
 const getAllComments = async (req, res) => {
-  console.log("req", req)
   try {
     const comments = await Comment.find()
-    console.log(
-      "logging all comments from backend getcomment - comments array",
-      comments
-    )
     if (comments) {
       return res.status(200).json({ comments })
     }
@@ -185,13 +176,9 @@ const getAllComments = async (req, res) => {
 }
 
 const getCommentsByMovieId = async (req, res) => {
-  console.log("req", req)
   try {
     const { id } = req.params
-    console.log("logging from backend getcomment - id", id)
-
     const comments = await Comment.find({ omdb_movie_id: id })
-    console.log("logging from backend getcomment - comments array", comments)
     if (comments) {
       return res.status(200).json({ comments })
     }
@@ -239,7 +226,7 @@ module.exports = {
   createMovie,
   getAllMovie,
   getMovieById,
-  updateMovieFromUser,
+  updateMovie,
   deleteMovieFromUser,
   getMoviesFromUser,
   getMovieByUserId,
