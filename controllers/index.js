@@ -123,7 +123,7 @@ const getMovieById = async (req, res) => {
 
 const updateMovie = async (req, res) => {
   try {
-    const user = await User.findById(req.params.user_id)
+    // const user = await User.findById(req.params.user_id)
     const { id } = req.params
     await Movie.findByIdAndUpdate(id, req.body, { new: true }, (err, movie) => {
       if (err) {

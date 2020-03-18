@@ -11,8 +11,9 @@ export const getItems = async () => {
 
 export const getItemById = async id => {
   try {
+    // debugger
     const resp = await api.get(`/items/${id}`)
-    return resp.data.item
+    return resp.data.movie
   } catch (error) {
     throw error
   }
@@ -30,9 +31,9 @@ export const createItem = async (id, item) => {
   }
 }
 
-export const updateItem = async (userId, itemId, item) => {
+export const updateItem = async (itemId, item) => {
   try {
-    const resp = await api.put(`/items/${userId}/items/${itemId}`, item)
+    const resp = await api.put(`/items/${itemId}`, item)
     return resp.data
   } catch (error) {
     throw error

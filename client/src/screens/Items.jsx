@@ -4,19 +4,21 @@ import Layout from '../components/shared/Layout'
 
 export default function Items(props) {
   const { history, match, user, items } = props
-  // const renderButton = id => {
-  //   if (user) {
-  //     return (
-  //       <button onClick={() => history.push(`${match.url}/${id}`)}>
-  //         Update
-  //       </button>
-  //     )
-  //   } else {
-  //     return null
-  //   }
-  // }
+  const renderButton = id => {
+    if (user) {
+      return (
+
+        <button onClick={() => history.push(`${match.url}/${id}`)}>
+          Update Movie
+        </button>
+      )
+    } else {
+      return null
+    }
+  }
 
   const renderItems = () => {
+    console.log(items)
     if (items) {
       return items.map(item => {
         return (
@@ -24,15 +26,7 @@ export default function Items(props) {
 
             <h3>{item.title} - {item.link}</h3>
 
-            <Link to="/items/:id/edit" className="edits">
-              <h4 className="movie-link">Update: <br/> {item.title} - {item.link}</h4>
-            </Link>
-
-            <Link to="/items/:id" className="edits">
-              <h4 className="movie-link">Delete: <br/> {item.title} - {item.link}</h4>
-            </Link>
-
-            {/* {renderButton(item._id)} */}
+            {renderButton(item._id)}
           </div>
         )
       })

@@ -10,23 +10,19 @@ export default function Items(props) {
       <Layout>
         <h1>My Movies</h1>
         {!items ? <h3>No Items at this time.</h3> : null}
-        <div className='movie-block'>
-          {/* <img src={pic} />
-          <div className='movie-text'>
-            <h3>Forrest Gump</h3>
-            <p>1994</p>
-            <p>A very nice movie indeed.</p>
+        {/* <div className='movie-block'>
           </div> */}
-          </div>
       </Layout>
-        )
+    )
   } else {
     return (
-      <div className="landing">
+      <Layout>
+        <div className="landing">
           <div className="main">
             {!items ? <h3>No Items at this time.</h3> : null}
           </div>
         </div>
-        )
-      }
+      </Layout>
+    )
+  }
 }

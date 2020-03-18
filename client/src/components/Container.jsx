@@ -1,10 +1,7 @@
 import React, { Component } from "react"
+import { Redirect } from 'react-router-dom'
 import axios from "axios"
-import { getItems } from "../services/items"
-
-// import Landing from '../screens/Landing'
-// import Home from '../screens/Home'
-
+import { getItems, deleteItem } from "../services/items"
 import Routes from "../routes"
 import Header from "../screens/Header"
 import Footer from "./shared/Footer"
@@ -45,6 +42,7 @@ export default class Container extends Component {
     try {
       const items = await getItems()
       this.setState({ items })
+      console.log(items)
     } catch (err) {
       console.error(err)
     }
@@ -55,6 +53,24 @@ export default class Container extends Component {
     this.setState(prevState => ({ items: [...prevState.items, item] }))
   }
 
+
+  destroy = async (itemId) => {
+    debugger
+    const removeMovie = await deleteItem(this.state.user._id, itemId)
+    // .then(() => this.setState({ deleted: true }))
+    // .catch(console.error)
+
+    this.setState(prevState => ({
+      items: prevState.items.filter(item =>
+        item._id !== itemId
+      )
+    }))
+    return <Redirect to={'/items'} />
+
+  }
+
+
+
   addComment = comment =>
     this.setState(prevstate => ({
       comments: [...this.state.comments, comment]
@@ -64,11 +80,10 @@ export default class Container extends Component {
 
   clearUser = () => this.setState({ user: null })
 
+
   render() {
     console.log(this.state.explorerMovies)
     console.log("container addComment", this.addComment)
-
-    // console.log(this.state.explorerMovies)
 
     const { user, items, item, explorerMovies, comments } = this.state
 
@@ -76,19 +91,20 @@ export default class Container extends Component {
       <div className='container'>
         <Header user={user} />
         <div className="routes">
-        <Routes className='routes'
+          <Routes className='routes'
             movieData={explorerMovies}
             items={items}
             item={item}
             user={user}
             setUser={this.setUser}
             addItem={this.addItem}
+            destroy={this.destroy}
             addComment={this.addComment}
             clearUser={this.clearUser}
             comments={comments}
           />
         </div>
-         
+
         <Footer />
       </div>
     )

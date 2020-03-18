@@ -3,10 +3,11 @@ import { Link, Redirect } from 'react-router-dom'
 import Layout from '../components/shared/Layout'
 import { getItemById, deleteItem } from '../services/items'
 
+
 class Item extends Component {
   constructor(props) {
     super(props)
-console.log(props)
+    console.log(props)
     this.state = {
       item: null,
       deleted: false
@@ -23,11 +24,11 @@ console.log(props)
     }
   }
 
-  destroy = () => {
-    deleteItem(this.state.item._id)
-      .then(() => this.setState({ deleted: true }))
-      .catch(console.error)
-  }
+  // destroy = () => {
+  //   deleteItem(this.props.user._id, this.state.item._id)
+  //     .then(() => this.setState({ deleted: true }))
+  //     .catch(console.error)
+  // }
 
   render() {
     const { item, deleted } = this.state
@@ -36,16 +37,6 @@ console.log(props)
       return <p>Loading...</p>
     }
 
-    if (deleted) {
-      return (
-        <Redirect
-          to={{
-            pathname: '/items',
-            state: { msg: 'Item succesfully deleted!' }
-          }}
-        />
-      )
-    }
 
     return (
       <Layout>
@@ -57,7 +48,7 @@ console.log(props)
           <p>{item.link}</p>
 
           <div className="buttons">
-            <button className="danger" onClick={this.destroy}>
+            <button className="danger" onClick={() => { this.props.delete(this.props.match.params.id); this.props.history.push('/items') }}>
               Delete Item
             </button>
 
