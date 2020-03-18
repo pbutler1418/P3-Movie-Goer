@@ -5,7 +5,7 @@ import Landing from "../screens/Landing"
 import SignIn from "../screens/SignIn"
 import SignOut from "../screens/SignOut"
 import SignUp from "../screens/SignUp"
-// import ChangePassword from '../screens/ChangePassword'
+import ChangePassword from '../screens/ChangePassword'
 import Item from "../screens/Item"
 import Items from "../screens/Items"
 import MyMovies from "../screens/MyMovies"
@@ -66,12 +66,14 @@ const Routes = ({
         user={user}
         render={props => <MyMovies {...props} user={user} items={items} />}
       />
-      {/* <AuthenticatedRoute
+
+      <AuthenticatedRoute
             exact
             path="/change-password"
             user={user}
             render={props => <ChangePassword {...props} />}
-        /> */}
+      />
+      
       <AuthenticatedRoute
         exact
         path={`/items/:id`}

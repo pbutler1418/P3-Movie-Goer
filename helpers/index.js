@@ -9,7 +9,7 @@ module.exports = {
       req.user = data
       next()
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       res.status(403).send({ error: "Unauthorized" })
     }
   }

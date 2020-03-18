@@ -64,7 +64,6 @@ class SignIn extends Component {
         <div className="form-container">
           <h3>Sign In</h3>
           <form onSubmit={this.onSignIn} className="signIn">
-            {/* <label>Username</label> */}
             <input className="signIn"
               required
               type="text"
@@ -73,7 +72,6 @@ class SignIn extends Component {
               placeholder="Enter Username Here"
               onChange={this.handleChange}
             />
-            {/* <label>Password</label> */}
             <input className="signIn"
               required
               name="password"

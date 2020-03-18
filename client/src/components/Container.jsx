@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Redirect } from 'react-router-dom'
 import axios from "axios"
-import { getItems, deleteItem, updateItem } from "../services/items"
+import { getItems, deleteItem } from "../services/items"
 import Routes from "../routes"
 import Header from "../screens/Header"
 import Footer from "./shared/Footer"
@@ -38,7 +38,6 @@ export default class Container extends Component {
     try {
       const items = await getItems()
       this.setState({ items })
-      console.log(items)
     } catch (err) {
       console.error(err)
     }
@@ -51,8 +50,8 @@ export default class Container extends Component {
   }
 
 
-  destroy = async (itemId) => {
-    const removeMovie = await deleteItem(this.state.user._id, itemId)
+  destroy = (itemId) => {
+    deleteItem(this.state.user._id, itemId)
 
     this.setState(prevState => ({
       items: prevState.items.filter(item =>
@@ -77,9 +76,6 @@ export default class Container extends Component {
 
 
   render() {
-    console.log(this.state.explorerMovies)
-    console.log("container addComment", this.addComment)
-
     const { user, items, item, explorerMovies, comments } = this.state
 
     return (

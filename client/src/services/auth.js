@@ -25,7 +25,7 @@ export const verifyToken = async () => {
           Authorization: `Bearer ${token}`
         }
       })
-      //storeToken(token)
+      storeToken(token)
 
       return resp.data.user
     } catch (e) {

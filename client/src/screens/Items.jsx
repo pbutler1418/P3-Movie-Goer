@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Layout from '../components/shared/Layout'
 
 export default function Items(props) {
@@ -7,7 +6,6 @@ export default function Items(props) {
   const renderButton = id => {
     if (user) {
       return (
-
         <button onClick={() => history.push(`${match.url}/${id}`)}>
           Update Movie
         </button>
@@ -18,14 +16,11 @@ export default function Items(props) {
   }
 
   const renderItems = () => {
-    console.log(items)
     if (items) {
       return items.map(item => {
         return (
           <div className="item" key={item._id}>
-
             <h3>{item.title} - {item.link}</h3>
-
             {renderButton(item._id)}
           </div>
         )
