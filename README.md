@@ -1,5 +1,6 @@
 # README: My Flicks
 
+
 ### I.	Project Description:
 ##### MVP Features:
 This is a movie database app that allows users to favorite their movies while also exploring a collection of movies from the OMDB API database. The main objective of the app is to allow users to browse through a collection of movies and add their favorites to their profile, allowing users to easily and simply share their favorite movies amongst one another. 
@@ -22,8 +23,6 @@ D.	Detail movie view
 The API being used for the app is the Open Movie Database (OMDB API). The OMDB API is a Representational State Transfer web service used to access movie information. The API endpoint plus key will allow the app to search for movie information including: title, year released, parental-rating, runtime, genre, director, writer, actors, plot, awards, critical ratings. An example endpoint to access this information would be: “http://www.omdbapi.com/?t=the+departed&plot=full&apikey=<key>”
 
 
-
-
 ### IV.	Wireframes:
 Working prototype can be found via the following link 
 
@@ -37,7 +36,7 @@ https://xd.adobe.com/view/e17b02a0-12d3-4d8a-4d5a-a00dac2b1aa8-974a/
  		 
 ![Wireframe](https://github.com/pbutler1418/P3-Movie-Goer/blob/dev/client/public/Wireframe2.png)	 
  		 
- 	
+
 
 ### V.	Component Hierarchy 
 A.	Link:https://docs.google.com/presentation/d/1hQWRuH2s5V_DqJYgiqYq4R2PO-2TYOs25I3fdK1KMcY/edit
@@ -45,9 +44,8 @@ A.	Link:https://docs.google.com/presentation/d/1hQWRuH2s5V_DqJYgiqYq4R2PO-2TYOs2
 ![Component Hierarchy](https://github.com/pbutler1418/P3-Movie-Goer/blob/dev/client/public/ComponentHierarchy.png)	
 
 
-
 ### VI.	List of Dependencies:
-	Our movie app will utilize multiple dependencies such as the React JS library, the Mongoose object data modeling library, the Express Web Framework, and the MongoDB database program. The app will also make use of the Surge and the Heroku deployment services.
+Our movie app will utilize multiple dependencies such as the React JS library, the Mongoose object data modeling library, the Express Web Framework, and the MongoDB database program. The app will also make use of the Surge and the Heroku deployment services.
 
 
 
