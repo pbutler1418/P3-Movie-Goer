@@ -22,6 +22,17 @@ button {
   margin: 1em;
 }
 
+
+.routes{
+  min-height: 75vh;
+}
+
+footer{
+  color: rgba(250, 235, 215, 0.555);
+  display: flexbox;
+  text-align: center;
+
+}
 .edits{
   text-decoration: none;
   width: 20em;
@@ -41,4 +52,12 @@ button {
 
 .item{
   display: flex;
+}
+
+
+@media (max-width: 600px){
+  h1{
+    font-size: 60px;
+    text-align: center;
+  }
 }
