@@ -21,19 +21,18 @@ const MovieDetail = (props) => {
           <p>{movie.release_date}</p>
           <p>{movie.overview}</p>
 
-          <div className='detail-buttons'>
-            <Link to="/create">
-              <button>Add to My Movie List</button>
-            </Link>
+          <Link to="/create">
+            <button>Add to My Movie List</button>
+          </Link>
 
-            <Link to="/">
-              <button> Go Back to Explore</button>
-            </Link>
-          </div>
+          <Link to="/">
+            <button> Go Back to Explore</button>
+          </Link>
         </div>
-
       </div>
+
       <CommentCreate user={user} movie_id={props.match.params.id} addComment={addComment} />
+
     </Layout>
   )
 }
