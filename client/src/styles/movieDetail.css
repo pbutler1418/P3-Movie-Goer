@@ -20,3 +20,31 @@ button{
   width: 20%;
   margin: 0px 5px;
 }
+
+
+@media (max-width: 600px){
+  .movie {
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .Movie > img {
+    width: 100%;
+    width: 70%;
+    height: 50%;
+  }
+
+  .movie-right{
+    width: 100%;
+    align-items:center;
+  }
+
+  .detail-buttons{
+    display: flex;
+    flex-direction: column;
+  }
+
+}

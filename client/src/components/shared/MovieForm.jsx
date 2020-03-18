@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/addToMyMovies.css'
 
 const MovieForm = ({
   item,
