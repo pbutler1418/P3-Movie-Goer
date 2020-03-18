@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import CommentForm from '../components/shared/CommentForm'
 import Comments from '../screens/Comments'
-import Layout from '../components/shared/Layout'
 import { createComment } from '../services/comments'
 import { getCommentsByMovieId } from '../services/comments'
 import '../styles/comments.css'
@@ -26,7 +24,6 @@ class CommentCreate extends Component {
   getComments = async () => {
     try {
       const comments = await getCommentsByMovieId(this.props.movie_id)
-      console.log('comments in getComments', comments)
       this.setState(
         { comments: comments }
       )
@@ -71,7 +68,7 @@ class CommentCreate extends Component {
           handleSubmit={handleSubmit}
           cancelPath="../"
         />
-        <Comments user={user} omdb_movie_id={movie_id} comments={comments} comments={comments}/>
+        <Comments user={user} omdb_movie_id={movie_id} comments={comments}/>
         </div> 
     )
   }

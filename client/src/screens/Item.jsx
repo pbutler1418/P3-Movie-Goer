@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Layout from '../components/shared/Layout'
-import { getItemById, deleteItem } from '../services/items'
+import { getItemById } from '../services/items'
+
 
 class Item extends Component {
   constructor(props) {
     super(props)
-console.log(props)
     this.state = {
       item: null,
       deleted: false
@@ -17,35 +17,18 @@ console.log(props)
     try {
       const item = await getItemById(this.props.match.params.id)
       this.setState({ item })
-      console.log(item)
     } catch (err) {
       console.error(err)
     }
   }
 
-  destroy = () => {
-    deleteItem(this.state.item._id)
-      .then(() => this.setState({ deleted: true }))
-      .catch(console.error)
-  }
 
   render() {
-    const { item, deleted } = this.state
-    console.log(this.state.item)
+    const { item } = this.state
     if (!item) {
       return <p>Loading...</p>
     }
 
-    if (deleted) {
-      return (
-        <Redirect
-          to={{
-            pathname: '/items',
-            state: { msg: 'Item succesfully deleted!' }
-          }}
-        />
-      )
-    }
 
     return (
       <Layout>
@@ -53,12 +36,13 @@ console.log(props)
           <Link to="/items">
             <span> Back to all items</span>
           </Link>
-          <h3>{item.title}</h3>
-          <p>{item.link}</p>
+          <h3>{item.title}-{item.link}</h3>
 
           <div className="buttons">
-            <button className="danger" onClick={this.destroy}>
-              Delete Item
+            <button className="danger" onClick={() => {
+              this.props.delete(this.props.match.params.id);
+              this.props.history.push('/items')
+            }}>Delete Item
             </button>
 
             <button
@@ -68,8 +52,7 @@ console.log(props)
                   `/items/${this.props.match.params.id}/edit`
                 )
               }
-            >
-              Edit
+            >Edit
             </button>
           </div>
         </div>

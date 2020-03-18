@@ -12,17 +12,14 @@ class Comments extends Component {
 
 
   async componentDidMount() {
-    console.log('props of comments.jsx', this.props)
   }
   
 
   render() {
   
     const { comments } = this.props
-    console.log('comments inside comments.jsx', comments)
 
   const renderComments = () => {
-    console.log('this should log comments to be displayed from comments.jsx', comments)
     if (comments) {
       return comments.map(comment => {
         return (

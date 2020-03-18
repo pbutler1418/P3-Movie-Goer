@@ -64,7 +64,6 @@ class SignUp extends Component {
                 <div className="form-container">
                     <h3>Sign Up</h3>
                     <form onSubmit={this.onSignUp} className="signUp">
-                        {/* <label>Username</label> */}
                         <input
                             required
                             type="text"
@@ -73,7 +72,6 @@ class SignUp extends Component {
                             placeholder="Enter Username Here"
                             onChange={this.handleChange}
                         />
-                        {/* <label>Email address</label> */}
                         <input
                             required
                             type="email"
@@ -82,7 +80,6 @@ class SignUp extends Component {
                             placeholder="Enter Email Here"
                             onChange={this.handleChange}
                         />
-                        {/* <label>Password</label> */}
                         <input
                             required
                             name="password"
@@ -91,7 +88,6 @@ class SignUp extends Component {
                             placeholder="Enter Password Here"
                             onChange={this.handleChange}
                         />
-                        {/* <label>Password Confirmation</label> */}
                         <input
                             required
                             name="passwordConfirmation"

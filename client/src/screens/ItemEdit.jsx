@@ -19,7 +19,6 @@ class ItemEdit extends Component {
   async componentDidMount() {
     try {
       const item = await getItemById(this.props.match.params.id)
-      console.log(item)
       this.setState({ item })
     } catch (err) {
       console.error(err)
@@ -28,18 +27,15 @@ class ItemEdit extends Component {
 
   handleChange = event => {
     const updatedField = { [event.target.name]: event.target.value }
-
     const editedItem = Object.assign(this.state.item, updatedField)
-
     this.setState({ item: editedItem })
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault()
 
-    updateItem(this.props.match.params.id, { ...this.state.item })
-      .then(() => this.setState({ updated: true }))
-      .catch(console.error)
+    updateItem(this.props.match.params.id, this.state.item)
+    this.props.history.push('/items')
   }
 
   render() {

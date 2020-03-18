@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 const Movie = new Schema(
   {
-    // omdb_movie_id: [{ type: String, required: true }]
     title: { type: String, required: true },
     link: { type: String, required: true },
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: "users" }

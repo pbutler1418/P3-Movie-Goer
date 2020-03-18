@@ -2,38 +2,36 @@ import React from 'react'
 import '../../styles/addToMyMovies.css'
 
 const ItemForm = ({
-    item,
-    handleSubmit,
-    handleChange,
-    cancelPath,
-    history
+  item,
+  handleSubmit,
+  handleChange,
+  cancelPath,
+  history
 }) => (
-        <div className='form-container'>
-            <form onSubmit={handleSubmit}>
-                {/* <label>Title</label> */}
-                <input
-                    placeholder='Enter Movie Title'
-                    value={item.title}
-                    name='title'
-                    required
-                    onChange={handleChange}
-                />
+    <div className='form-container'>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder='Enter Movie Title'
+          value={item.title}
+          name='title'
+          required
+          onChange={handleChange}
+        />
 
-                {/* <label>Link</label> */}
-                <input
-                    placeholder='Enter Movie Year'
-                    value={item.link}
-                    name='link'
-                    required
-                    onChange={handleChange}
-                />
+        <input
+          placeholder='Enter Movie Year'
+          value={item.link}
+          name='link'
+          required
+          onChange={handleChange}
+        />
 
-                <button type='submit'>Submit</button>
-                <button className='danger' onClick={() => history.push(cancelPath)}>
-                    Cancel
+        <button type='submit'>Submit</button>
+        <button className='danger' onClick={() => history.push(cancelPath)}>
+          Cancel
 			</button>
-            </form>
-        </div>
-    )
+      </form>
+    </div>
+  )
 
 export default ItemForm

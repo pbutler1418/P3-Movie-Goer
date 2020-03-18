@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
 const API_KEY = '981f1b61aa5e31abce190e535142d7e9'
-// const search = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${input}`
 
 
 class SearchFunction extends Component {
@@ -62,7 +61,6 @@ class SearchFunction extends Component {
 
   render() {
     console.log(this.state.movies)
-    // const pic = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     let movies = this.state.movies.length !== 0 && this.state.movies.results.map((movie, index) => {
       return (
         <div key={index}>

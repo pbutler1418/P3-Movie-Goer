@@ -1,6 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import Navbar from '../components/shared/Navbar.jsx'
 import '../styles/header.css'
 
 const Header = ({ user }) => (
