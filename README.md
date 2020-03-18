@@ -36,29 +36,17 @@ Mobile Prototype Link:
 https://xd.adobe.com/view/e17b02a0-12d3-4d8a-4d5a-a00dac2b1aa8-974a/
 
  		 
-![Wireframe](/client/public/Wireframe1.png)		 
+![Wireframe](https://github.com/pbutler1418/P3-Movie-Goer/blob/dev/client/public/Wireframe1.png)		 
  		 
-![Wireframe](/client/public/Wireframe2.png)	 
+![Wireframe](https://github.com/pbutler1418/P3-Movie-Goer/blob/dev/client/public/Wireframe2.png)	 
  		 
-
- 		 
-
-
-
-
-
-
-
-
-
-
-
+ 	
 
 client/public/ComponentHierarchy.png
 V.	Component Hierarchy 
 A.	Link:https://docs.google.com/presentation/d/1hQWRuH2s5V_DqJYgiqYq4R2PO-2TYOs25I3fdK1KMcY/edit
 
-![Component Hierarchy](/client/public/ComponentHierarchy.png)	
+![Component Hierarchy](https://github.com/pbutler1418/P3-Movie-Goer/blob/dev/client/public/ComponentHierarchy.png)	
 
 
 
