@@ -1,8 +1,9 @@
 .layout{
-  height: 200vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   margin: 0px;
+  border: solid purple;
 }
 
 nav{
