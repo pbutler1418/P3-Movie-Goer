@@ -15,7 +15,7 @@ const ExploreMovies = ({ movieData }) => {
 
   return (
     <Layout>
-      <h1>Explore Movies</h1>
+      <h3>Explore Movies</h3>
       <SearchFunction />
       <div className='movies-container'>
       {movies}
