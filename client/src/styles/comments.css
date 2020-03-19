@@ -3,7 +3,7 @@
   height: 75%;
   display: flex;
   flex-direction: column;
-  margin: 0px;
+  margin: 10px 0px;
   padding: 0px;
 }
 
@@ -19,12 +19,11 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
   height: 100%;
 }
 
 .comments-display{
-  height: 80%;
+  height: 80vh;
   width: 100%;
   margin: 0px;
 }
@@ -36,10 +35,10 @@
   height: 90%;
 }
 
-input{
+.input-container > input{
   height: 80%;
   width: 78%;
-  margin: 5px 10px;
+  margin: 5px 10px 0px 0px;
   padding: 5px;
 }
 
@@ -67,13 +66,22 @@ input.button{
 }
 
 @media (max-width: 600px){
-  input.button{
-    width: 20%;
+
+  .input-container {
+   flex-direction: column;
+   align-items: center;
   }
 
-  .input-container > input {
-    width: 50%;
+  input.button{
+    width: 40%;
+    margin: 10px;
   }
 
 }
 
+
+@media (min-width: 600px) and (max-width: 900px){
+  h4{
+    width: 100%;
+  }
+  }

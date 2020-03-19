@@ -20,12 +20,12 @@ const Movie = (props) => {
         <p>Overview: {movie.overview}</p>
 
         <div className="movie-buttons">
-          <Link to='/create'>
-            <button>Save Movie</button>
+          <Link to='/create' >
+            <button className='movie-button'>Save Movie</button>
           </Link>
 
           <Link to={`movies/${movie.id}`}>
-            <button> Show Detail</button>
+            <button className='movie-button'> Show Detail</button>
           </Link>
 
         </div>
