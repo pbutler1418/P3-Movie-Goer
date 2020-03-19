@@ -44,8 +44,9 @@ class SearchFunction extends Component {
 
   Search = ({ onChange, onSubmit, name, value }) => {
     return (
+      <div className="form-container">
       <form onSubmit={e => onSubmit(e)}>
-        <div className="search">
+
           <input
             value={value}
             onChange={e => onChange(e)}
@@ -54,13 +55,13 @@ class SearchFunction extends Component {
             placeholder="Enter Search Query"
           />
           <button type="submit">Search</button>
+       
+        </form>
         </div>
-      </form>
     )
   }
 
   render() {
-    console.log(this.state.movies)
     let movies = this.state.movies.length !== 0 && this.state.movies.results.map((movie, index) => {
       return (
         <div key={index}>
@@ -91,8 +92,9 @@ export default SearchFunction
 
 const Search = ({ onChange, onSubmit, name, value }) => {
   return (
+    <div className="form-container">
+
     <form onSubmit={e => onSubmit(e)}>
-      <div className="search">
         <input
           value={value}
           onChange={e => onChange(e)}
@@ -101,7 +103,7 @@ const Search = ({ onChange, onSubmit, name, value }) => {
           placeholder="Enter Search Query"
         />
         <button type="submit">Search</button>
+      </form>
       </div>
-    </form>
   )
 }

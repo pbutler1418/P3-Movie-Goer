@@ -6,10 +6,9 @@ export default function Items(props) {
   const renderButton = id => {
     if (user) {
       return (
-        <button onClick={() => history.push(`${match.url}/${id}`)}>
-          Update Movie
+        <button className="form-container" onClick={() => history.push(`${match.url}/${id}`)}>
+          Update Movie 
         </button>
-
 
       )
     } else {
@@ -21,9 +20,10 @@ export default function Items(props) {
     if (items) {
       return items.map(item => {
         return (
-          <div className="item" key={item._id}>
+          <div className="landing" key={item._id}>
             <h3>{item.title} - {item.link}</h3>
             {renderButton(item._id)}
+            <br/>
           </div>
         )
       })
@@ -38,7 +38,7 @@ export default function Items(props) {
         <div>
           <h3>My Movies</h3>
           {!items ? <h3>No Items at this time.</h3> : null}
-          <div className="item-container">{renderItems()}</div>
+          <div className="landing">{renderItems()}</div>
         </div>
       </Layout>
     )
@@ -47,7 +47,7 @@ export default function Items(props) {
       <div className="landing">
         <div className="main">
           {!items ? <h3>No Items at this time.</h3> : null}
-          <div className="item-container">{renderItems()}</div>
+          <div className="form-container">{renderItems()}</div>
         </div>
       </div>
     )

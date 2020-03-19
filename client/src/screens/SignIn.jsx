@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { signInUser } from '../services/auth'
 import '../styles/landing.css'
-
+import { Link } from 'react-router-dom'
 
 class SignIn extends Component {
   constructor() {
@@ -80,6 +80,9 @@ class SignIn extends Component {
               onChange={this.handleChange}
             />
             {this.renderError()}
+            <Link to="/">
+              <button>Cancel</button>
+            </Link>
           </form>
         </div>
       </div>

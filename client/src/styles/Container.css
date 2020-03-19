@@ -23,11 +23,6 @@ button {
 }
 
 
-footer{
-  color: rgba(250, 235, 215, 0.555);
-  text-align: center;
-}
-
 .edits{
   text-decoration: none;
   width: 20em;
@@ -55,4 +50,10 @@ footer{
     font-size: 60px;
     text-align: center;
   }
+}
+
+
+footer{
+  color: rgba(250, 235, 215, 0.555);
+  text-align: center;
 }
