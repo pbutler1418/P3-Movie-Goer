@@ -1,5 +1,7 @@
 # README: My Flicks
 
+### Deployed Project:
+http://myfavflicks.surge.sh/
 
 ### I.	Project Description:
 ##### MVP Features:
