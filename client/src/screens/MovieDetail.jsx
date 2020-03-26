@@ -21,14 +21,17 @@ const MovieDetail = (props) => {
           <p>{movie.release_date}</p>
           <p>{movie.overview}</p>
 
-          <Link to="/create">
-            <button>Add to My Movie List</button>
-          </Link>
+          <div className='detail-buttons'>
+            <Link to="/create" >
+              <button className='detail-button'>Add to My Movie List</button>
+            </Link>
 
-          <Link to="/">
-            <button> Go Back to Explore</button>
-          </Link>
+            <Link to="/">
+              <button className='detail-button'> Go Back to Explore</button>
+            </Link>
+          </div>
         </div>
+
       </div>
 
       <CommentCreate user={user} movie_id={props.match.params.id} addComment={addComment} />

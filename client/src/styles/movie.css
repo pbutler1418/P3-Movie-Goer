@@ -1,7 +1,7 @@
 .Movie{
   display: flex;
   flex-flow: row nowrap;
-  width: 46%;
+  width: 47.5%;
   height: 40vh;
   margin: 15px;
   background-color: rgba(196, 175, 175, 0.8);
@@ -41,6 +41,12 @@ h4{
 
 .Movie > img {
   width: 35%;
+  height: 90%;
+  margin: 15px 0px 0px 15px;
+}
+
+.movie-buttons > a > button {
+  padding: 5px;
 }
 
 @media (max-width: 600px){
@@ -68,7 +74,31 @@ h4{
   }
 
   .movie-buttons{
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
+  .movie-buttons > a {
+    margin: 0px
+  }
+
+  .movie-buttons >a > button {
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px){
+  .Movie {
+    width: 100%;
+  }
+
+
+  .button-link {
+    width: 40%;
+  }
+
+
+  .movie-buttons >a > button {
+    width: 70%;
+  }
 }

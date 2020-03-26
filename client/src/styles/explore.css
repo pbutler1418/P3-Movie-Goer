@@ -2,11 +2,11 @@
   display: flex;
   flex-flow: row wrap;
   margin: 0px;
-  height: 80vh;
+  height: 100vh;
   overflow: auto;
 }
 
-.explore-search{
+.search{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -45,7 +45,7 @@ button{
     width: 100%;
     text-align: center;
   }
-  .explore-search{
+  .search{
     flex-direction: column;
     justify-content: center;
     align-items: center;
