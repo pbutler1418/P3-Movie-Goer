@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Layout from '../components/shared/Layout'
 import { getItemById } from '../services/movies'
+import '../styles/addToMyMovies.css'
 
 
 class Item extends Component {
@@ -32,29 +32,24 @@ class Item extends Component {
 
     return (
       <Layout>
-        <div className="item">
-          <Link to="/items">
-            <span> Back to all items</span>
-          </Link>
+        <div className="form-container">
+          <h3>Update Movie</h3>
+          <br />
           <h3>{item.title}-{item.link}</h3>
 
-          <div className="buttons">
-            <button className="danger" onClick={() => {
-              this.props.delete(this.props.match.params.id);
-              this.props.history.push('/items')
-            }}>Delete Item
+          <button onClick={() => {
+            this.props.delete(this.props.match.params.id);
+            this.props.history.push('/items')
+          }}>Delete Movie
             </button>
 
-            <button
-              className="edit"
-              onClick={() =>
-                this.props.history.push(
-                  `/items/${this.props.match.params.id}/edit`
-                )
-              }
-            >Edit
+          <button onClick={() =>
+            this.props.history.push(
+              `/items/${this.props.match.params.id}/edit`
+            )
+          }
+          >Edit Movie
             </button>
-          </div>
         </div>
       </Layout>
     )

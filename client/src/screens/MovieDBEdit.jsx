@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import MovieForm from '../components/shared/MovieForm'
 import { getItemById, updateItem } from '../services/movies'
+import '../styles/layout.css'
+import Layout from '../components/shared/Layout'
+
 
 class ItemEdit extends Component {
   constructor(props) {
     super(props)
-    console.log(props)
     this.state = {
       item: {
         title: '',
@@ -48,17 +50,20 @@ class ItemEdit extends Component {
     }
 
     return (
-      <>
-        <h3>{item.title} - {item.link}</h3>
-
-        <MovieForm
-          history={history}
-          item={item}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          cancelPath={`/items/${this.props.match.params.id}`}
-        />
-      </>
+      <Layout>
+        <div className="form-container">
+          <h3>Edit Movies</h3>
+          <br />
+          <h3>{item.title} - {item.link}</h3>
+          <MovieForm
+            history={history}
+            item={item}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            cancelPath={`/items/${this.props.match.params.id}`}
+          />
+        </div>
+      </Layout>
     )
   }
 }

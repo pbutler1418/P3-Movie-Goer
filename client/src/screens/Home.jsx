@@ -7,7 +7,7 @@ import axios from "axios"
 
 const Home = ({ user }) => (
   <Layout>
-    <h1>Explore Your Favorite Movies</h1>
+    <h2>Explore Your Favorite Movies</h2>
     <div className='movie-block'>
       {fetchInfo}      
     </div>

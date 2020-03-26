@@ -16,9 +16,10 @@ const ExploreMovies = ({ movieData }) => {
   return (
     <Layout>
       <h3>Explore Movies</h3>
+      <br />
       <SearchFunction />
       <div className='movies-container'>
-      {movies}
+        {movies}
       </div>
     </Layout>
   )

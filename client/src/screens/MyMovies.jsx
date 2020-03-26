@@ -7,7 +7,8 @@ export default function Items(props) {
   if (user) {
     return (
       <Layout>
-        <h1>My Movies</h1>
+        <h3>My Movies</h3>
+        <br/>
         {!items ? <h3>No Items at this time.</h3> : null}
       </Layout>
     )
