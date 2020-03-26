@@ -46,7 +46,7 @@ class ItemCreate extends Component {
     return (
       <Layout>
         <h3>Save Movie</h3>
-        <br />
+        <br/>
         <MovieForm
           item={item}
           history={history}
