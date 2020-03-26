@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import MovieForm from '../components/shared/MovieForm'
 import { getItemById, updateItem } from '../services/movies'
-import '../styles/addToMyMovies.css'
+import '../styles/layout.css'
 import Layout from '../components/shared/Layout'
 
 
 class ItemEdit extends Component {
   constructor(props) {
     super(props)
-    console.log(props)
     this.state = {
       item: {
         title: '',

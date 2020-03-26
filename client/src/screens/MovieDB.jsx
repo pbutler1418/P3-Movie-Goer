@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Layout from '../components/shared/Layout'
 import { getItemById } from '../services/movies'
+import '../styles/addToMyMovies.css'
+
 
 class Item extends Component {
   constructor(props) {
@@ -30,8 +32,9 @@ class Item extends Component {
 
     return (
       <Layout>
-        <h3>Update Movie</h3>
-        <br />
+        <div className="form-container">
+          <h3>Update Movie</h3>
+          <br />
           <h3>{item.title}-{item.link}</h3>
 
           <button onClick={() => {
@@ -47,6 +50,7 @@ class Item extends Component {
           }
           >Edit Movie
             </button>
+        </div>
       </Layout>
     )
   }
